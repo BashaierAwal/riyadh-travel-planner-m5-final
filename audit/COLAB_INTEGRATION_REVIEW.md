@@ -8,7 +8,7 @@ Inspected actual `m5eval/generation.py`, `experiment.py`, `demo.py`, `records.py
 
 ## Verification executed
 
-Used the bundled Python 3.12 runtime with the separately installed pinned SDK available through `PYTHONPATH=/private/tmp/m5-gemini-sdk`.
+Used the bundled Python 3.12 runtime with the separately installed pinned SDK in an isolated dependency directory.
 
 ```sh
 python3 -m unittest discover -s tests
