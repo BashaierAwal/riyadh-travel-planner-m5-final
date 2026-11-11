@@ -1,4 +1,4 @@
-> Submission verification: use notebooks/M5_Baseline_Verification_Clean.ipynb with the separately attached original datasets and historical evaluate.txt/experiment.txt. Direct V3 auditing requires an isolated copy containing the exact historical source. Legacy V2 evaluator commands require the omitted original source/ archive. Earlier commands below describe that historical/full-project context.
+> Final submission verification: all required V3 inputs are now included in this repository. From the repository root run `python scripts/verify_submission.py`. It creates an isolated historical-source copy and verifies the saved cohort without model calls. The Colab upload instructions and legacy V2 commands below describe earlier/full-project workflows; they are not prerequisites for this supported local verification path.
 
 # Gemini and M5 in Colab
 

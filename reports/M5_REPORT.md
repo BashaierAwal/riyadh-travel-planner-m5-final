@@ -105,7 +105,7 @@ Mean recorded adapter time was 5,386.64 ms per run, with a range of 1,275.29–3
 
 ## Historical evidence and qualitative material
 
-The original project archive contained 75 source files and three unchanged CSV datasets. These materials are retained in the private project archive but are not redistributed in the GitHub review package. The repository preserves the selected evaluation code, reports, and saved evidence. Historical V2 has sixty score records with matching saved inputs, but its original full itineraries and argument/result traces were not recovered from available backups, notebook outputs or Desktop copies. Its score arithmetic can be checked; the original outputs cannot be independently rescored.
+The original project archive contained 75 source files and three unchanged CSV datasets. The historical source notebooks and course materials remain in the private archive. The final repository now includes the three original CSV datasets and two historical source TXT files needed by the supported V3 verification path. The repository preserves the selected evaluation code, reports, and saved evidence. Historical V2 has sixty score records with matching saved inputs, but its original full itineraries and argument/result traces were not recovered from available backups, notebook outputs or Desktop copies. Its score arithmetic can be checked; the original outputs cannot be independently rescored.
 
 | Historical V2 metric | Recorded mean (%) | Across-run sample SD (n=60) | Between-seed-mean SD (n=3) |
 |---|---:|---:|---:|
@@ -127,7 +127,7 @@ Run `python scripts/verify_full_cohort.py` to audit the saved V3 ZIP without any
 
 The evaluation uses dataset labels for interests and budget. A structurally valid itinerary may still have practical problems that these datasets cannot reveal. The existing preference-capacity cases and the observed service/parser failures limit interpretation. M6 must preserve the shared evaluation and generation conditions, disclose service scheduling/retries and report failures consistently across architectures. V3's fuller evidence does not retroactively validate V2 or establish a baseline-versus-treatment improvement.
 
-We have adopted the case rules, current APM calculation and RTC definition. The cases, code and sixty saved baseline runs remain unchanged. The supporting original datasets and historical verification source files are supplied separately with this submission. Any required student contribution declaration must identify actual contributions; this report does not assign roles. The datasets remain in the private project until their redistribution terms are confirmed. 
+We have adopted the case rules, current APM calculation and RTC definition. The cases, code and sixty saved baseline runs remain unchanged. The supporting original datasets and historical verification source files are included in this final repository under data/ and historical/. Any required student contribution declaration must identify actual contributions; this report does not assign roles. Their original hashes and scientific contents are unchanged. 
 
 
 ## Supplementary LLM judge results (10 November 2026)
