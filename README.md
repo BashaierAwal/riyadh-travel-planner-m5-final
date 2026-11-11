@@ -1,27 +1,39 @@
 # Riyadh Travel Planner — M5 Final Submission
 
-## Start here
+The project files are directly available below; no external attachment is required for saved-result verification. This submission export incorporates the team repository and separately supplied historical source files, with documentation cleanup. Scientific code, original datasets, saved baseline evidence and supplementary judge scores remain unchanged.
 
+## Read first
 - [Final M5 report](reports/M5_REPORT.md)
-- [Supplementary judge report](reports/llm_judge/JUDGE_REPORT.md)
-- [Download the complete project, code, tests and saved evidence](riyadh-travel-planner-m5-main.zip)
-- [Offline verification notebook](notebooks/M5_Baseline_Verification_Clean.ipynb)
+- [Primary results](reports/RESULTS.md)
+- [Supplementary judge results and limitations](reports/llm_judge/JUDGE_REPORT.md)
+- [Evaluation protocol](docs/EVALUATION_PROTOCOL.md)
 
-Approved baseline:20 cases ×3 requested seeds =60 saved runs,58 parsed outputs and49 structurally valid plans. Primary means:APM93.50%,RBM96.67%,HBM96.67%,IFR81.67%,RTC100%. Failures remain included. Supplementary judge:58 generated itineraries,mean4.522/5; not a replacement for primary scoring.
+20 cases ×3 requested seeds =60 records;58 parsed outputs;49 structurally valid plans. APM93.50%,RBM96.67%,HBM96.67%,IFR81.67%,RTC100%. All failures remain included. Supplementary judge:58 plans,mean4.522/5,not a replacement for primary scoring.
 
-## Verification
+## Verify offline
+Use Python3.11 or3.12. Clone or download this repository, then run from its root:
 
-1. Download riyadh-travel-planner-m5-main.zip from this repository. This archive contains the complete public project snapshot, including Python code and saved60-run evidence.
-2. Obtain riyadh_m4_datasets.zip from the private course-submission attachment. It contains the unchanged original M4 CSV datasets, omitted publicly because redistribution permission is not established.
-3. Download [evaluate.txt](historical/evaluate.txt) and [experiment.txt](historical/experiment.txt). These are historical fingerprint-matching source files, not replacements for current code.
-4. Open the verification notebook in a fresh Colab session. Upload project and datasets when prompted, followed by the two historical files. It verifies checksums, runs tests and audits an isolated historical-source copy. No new Gemini generation is needed.
+```bash
+python -m pip install -r requirements.txt
+python scripts/verify_submission.py
+```
 
-The cleaned notebook retains outputs from an earlier run and documents the verified workflow; it does not claim a fresh execution of that exact cleaned notebook. Independently reproduced submission checks:53 tests passed;60/60 saved records audited,13/13 historical source files and3/3 datasets matched.
+The helper checks the supplied historical TXT hashes, creates a temporary copy, restores those two historical modules there, then independently audits the saved60-run cohort. Your current code and original evidence are never overwritten. No Gemini key or live model calls are required.
 
-The older python -m m5eval.evaluate path requires the omitted original historical source tree. Use the dedicated V3 verification notebook instead. Do not overwrite existing results or current source to resolve a fingerprint mismatch.
+To run all53 tests, including mocked SDK integration checks:
 
-## Scope
+```bash
+python -m pip install -r requirements-gemini.txt
+python scripts/run_checks.py
+```
 
-IFR is structural and dataset feasibility, not booking availability, opening hours or travel-time certification. RTC is required-tool-name coverage, not proof that selected items came from tool results. Actual monetary cost is not established.
+The3 original CSVs are in data/. The historical files are in historical/. The unchanged archived cohort remains under evidence/cohorts/ as its original integrity-protected ZIP; verification reads it automatically. All source code is available as ordinary folders, rather than inside an outer project ZIP.
 
-This final submission export is based on the team project maintained at https://github.com/resanrd0522/riyadh-travel-planner-m5 . Numerical scores, primary evidence, model code and supplementary judge outputs remain unchanged.
+## Important distinctions
+- scripts/verify_full_cohort.py checks source fingerprints and therefore must run on matching historical code; the new verify_submission.py handles that isolation automatically.
+- python -m m5eval.evaluate is a legacy V2 path requiring the original historical source/ tree. It is not the supported V3 verification command.
+- notebooks/M5_Baseline_Verification_Clean.ipynb retains the earlier Colab upload workflow and outputs from an earlier run. The repository-root command above is the simpler complete local route.
+- reports/llm_judge/M5_LLM_Judge_Evaluation.ipynb is an archived LIVE judge notebook; do not Run all merely to verify saved scores.
+- IFR is structural feasibility, not live travel-time or booking certification. RTC is tool-name coverage, not proof of correct final selection.
+
+Based on the team project at https://github.com/resanrd0522/riyadh-travel-planner-m5 . Student contribution statements must identify actual work; no allocation of authorship is inferred. Model/data provenance remains documented in the reports.
