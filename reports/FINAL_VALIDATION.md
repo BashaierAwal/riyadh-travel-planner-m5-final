@@ -100,8 +100,8 @@ This record documents the November 11 offline test run and independent verificat
 
 The validation does not claim that the live experiment was rerun, that the provider independently attested the saved outputs, or that all generated itineraries were feasible.
 
-The original datasets must be restored locally for reproducibility because they are not distributed in the GitHub repository.
+The final public submission now includes the original datasets under `data/` and the two historical source files under `historical/`; no separate attachment or dataset restoration is needed. From the repository root, run `python scripts/verify_submission.py`. The helper restores historical code only in a temporary copy before invoking the independent cohort verifier.
 
-The independent evidence audit requires source files matching the historical experiment fingerprints. The current repository revision is not directly fingerprint-compatible with the frozen Baseline V3 manifest; the successful audit used a separate historical-source verification copy.
+The independent evidence audit requires source files matching the historical experiment fingerprints. The current working modules differ from the frozen Baseline V3 source fingerprints; the supported `verify_submission.py` helper handles the required historical-source copy automatically. Running `verify_full_cohort.py` directly on the current working modules is not the supported final-submission path.
 
 No additional live Gemini generation requests were made during the validation.
