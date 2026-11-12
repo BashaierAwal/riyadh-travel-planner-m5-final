@@ -100,8 +100,12 @@ This record documents the November 11 offline test run and independent verificat
 
 The validation does not claim that the live experiment was rerun, that the provider independently attested the saved outputs, or that all generated itineraries were feasible.
 
-The final public submission now includes the original datasets under `data/` and the two historical source files under `historical/`; no separate attachment or dataset restoration is needed. From the repository root, run `python scripts/verify_submission.py`. The helper restores historical code only in a temporary copy before invoking the independent cohort verifier.
+In the final submission repository, the three original datasets are included under `data/` and the two historical source files under `historical/`. No separate attachment is required by the supported saved-evidence verification route: run `python scripts/verify_submission.py` from the repository root.
 
-The independent evidence audit requires source files matching the historical experiment fingerprints. The current working modules differ from the frozen Baseline V3 source fingerprints; the supported `verify_submission.py` helper handles the required historical-source copy automatically. Running `verify_full_cohort.py` directly on the current working modules is not the supported final-submission path.
+The independent evidence audit requires source files matching the historical experiment fingerprints. The current core source revision is not directly fingerprint-compatible with the frozen Baseline V3 manifest; `verify_submission.py` creates the required isolated historical-source copy automatically. Earlier Colab results described above remain historical execution evidence, not a claim that the cleaned notebook was rerun.
 
 No additional live Gemini generation requests were made during the validation.
+
+## Supported final-submission route
+
+The repository-root helper was rerun successfully during final submission validation:PASS_EVIDENCE_AUDIT,60/60 records,13/13 historical core source files and3/3 datasets matched. The53-test result uses the optional pinned SDK dependencies. Without those optional dependencies,45 passing tests plus8 skipped SDK tests is consistent; skips must not be reported as executed passes. The helper adds convenience only and does not change scored evidence.
