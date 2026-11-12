@@ -51,9 +51,15 @@ End-to-end scoring evaluates all sixty saved V3 records, with failed generations
 
 For each run, recorded required-tool coverage is `100 × |distinct required names observed| / 3`. The required names are `find_activities`, `find_restaurants`, and `find_hotels`. Repeated calls do not increase coverage. The historical label is RTC. Its basis is the saved name sequence; no complete historical call arguments/results are available. For the new V3 cohort, names come from first-candidate HTTP response messages in the final attempt, with every record trace matched to its separate journal. Both failed final generations still have RTC=100%, illustrating its narrow scope. This is a process metric, not tool correctness, optimal order or full trajectory quality.
 
-## LLM judge
+## LLM judge — supplementary results completed on 10 November 2026
 
-Numerical scores are the main evaluation method. The existing judge rubric and prompt are preserved as supplementary work; no completed judge grades are supplied and none were generated during this repair. If used later, freeze the rubric/model/prompt, identify the sample cohort, blind architecture labels, calibrate a sample with human raters, retain failures, and report coverage. Do not generalize grades on later supplementary samples to the original 60 runs. Do not discard structural failures from numeric results when applying qualitative filters.
+Numerical scores remain the primary evaluation method. During the earlier review, judge requests had failed and no completed grades were available. A later supplementary assessment on 10 November 2026 used `gemini-3.1-flash-lite` at temperature0 to judge the saved Baseline V3 itineraries; no baseline plans were regenerated.
+
+The judge scored58 generated itineraries out of60 baseline records. The same two generation failures were retained as unjudged and excluded only from the judge-score mean, not from primary numerical results. Four equally weighted1–5 criteria were used: personalization, budget alignment, itinerary coherence and itinerary feasibility. Their means were4.103,5.000,4.466 and4.517; the overall mean was4.522/5 (n=58).
+
+See [the judge report](../reports/llm_judge/JUDGE_REPORT.md), [per-run results](../reports/llm_judge/baseline_judge_results.json), and [summary](../reports/llm_judge/baseline_judge_summary.json). These supplementary model judgments do not replace APM/RBM/HBM/IFR/RTC. Feasibility judgments were inconsistent about repeated activities and do not certify actual travel times, opening hours or booking feasibility. No independent human calibration or separate repeatability validation was performed. One later successful retry lacks a timestamp; no missing metadata was invented.
+
+Any future judge experiment should freeze and retain its rubric/model/prompt and sample identity, blind condition labels where appropriate, calibrate with human raters and report coverage/failures. Do not pool distinct sample cohorts or remove structural failures from primary results.
 
 ## Statistics
 

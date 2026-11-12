@@ -4,7 +4,8 @@ The project files are directly available below; no external attachment is requir
 
 ## Read first
 - [Final M5 report](reports/M5_REPORT.md)
-- [Primary results](reports/RESULTS.md)
+- [Final Baseline V3 primary results](reports/BASELINE_V3_RESULTS.md)
+- [Historical V2 results — not the final V3 summary](reports/RESULTS.md)
 - [Supplementary judge results and limitations](reports/llm_judge/JUDGE_REPORT.md)
 - [Evaluation protocol](docs/EVALUATION_PROTOCOL.md)
 
